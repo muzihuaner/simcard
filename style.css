@@ -63,3 +63,24 @@
 .rightbar{
     width: 100px!important;
 }
+.list-partner li {
+    display: inline-block;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 6px;
+}
+.list-partner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #efefef;
+    vertical-align: top;
+    border-radius: 2px;
+}
+.list-links a {
+    display: inline-block;
+    margin: 0 15px 12px 0;
+    color: #999;
+    line-height: 1;
+}
