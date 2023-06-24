@@ -1,0 +1,65 @@
+.pageline {
+    width: 100%;
+    display: inline-flex;
+}
+.pagePraise {
+    display: inline-flex;
+}
+.tag {
+    width: inherit;
+    padding: 0.03rem 0.08rem;
+    background: rgba(255, 255, 255, 1);
+    font-size: x-large;
+    border-radius: 5px!important;
+    border: 1px solid!important;
+}
+.flex-all-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.marginRight12 {
+    margin-right: 1rem;
+}
+
+.color1 {
+    color: #ff7642;
+    border: 0.014rem solid #ff7642;
+}
+.color2 {
+    color: #8a14ff;
+    border: 0.014rem solid #8a14ff;
+}
+.color3 {
+    color: #14a1ff;
+    border: 0.014rem solid #14a1ff;
+}
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+.page-box-right {
+    min-width: max-content;
+    font-size: x-large;
+    color: #cb9d59;
+    padding: 0.07rem 0.08rem;
+    box-sizing: border-box;
+    border-top: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0px 5px 5px 0px;
+  
+}
+.page-box-left {
+    width: max-content;
+    padding: 0.07rem 0.08rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px 0px 0px 5px!important;
+    
+}
+.praise{
+    width: 150px;
+}
+.rightbar{
+    width: 100px!important;
+}
