@@ -89,3 +89,33 @@
         width: auto!important;
     }
  }
+
+ .toolbar-right {
+    width: 35px;
+    height: 70px;
+    position: fixed;
+    right: 0;
+    bottom: 70px;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 0 4px 0 #ccc;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.toolbar-right .service {
+    background-image: url(/img/service.svg);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.toolbar-right .service, .toolbar-right .feedback {
+    display: inline-block;
+    height: 75px;
+    width: 35px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 13.5px;
+}
