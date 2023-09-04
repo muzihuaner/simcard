@@ -4,8 +4,13 @@
 <head>
   <title>快点卡卡屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico">
-  <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://jsd.onmicrosoft.cn/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js" type="text/javascript"></script>
   <link rel="stylesheet" href="style.css">
   <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
   <script>LA.init({ id: "K6fAVezvbNfp8VT1", ck: "K6fAVezvbNfp8VT1" })</script>
@@ -89,12 +94,128 @@
 
     <div class="container mt-5" style="width:100%;height:1000px;" id="card">
       <h3>选择最适合你的手机套餐</h3>
-      <iframe class="91haoka" style="border: none;
+      <!-- <iframe class="91haoka" style="border: none;
       width: 100%;
       height: 100%;
       overflow: hidden;"
         src="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B"
-        frameborder="0"></iframe>
+        frameborder="0"></iframe> -->
+
+
+
+      <style>
+        .img-thumbnail {
+          width: 72px;
+          height: 72px;
+          border-radius: 5px !important;
+          position: absolute;
+          top: 13px;
+        }
+
+        .list-group-item {
+          background-color: #fff;
+          padding: 8px 3% 12px;
+          min-height: 80px;
+          margin: 0 auto;
+          position: relative;
+          border-top: 1px solid #eee;
+
+        }
+
+        .list-group-item p {
+          margin-left: 100px;
+        }
+
+        .btn-primary {
+          position: absolute;
+          right: 3%;
+          bottom: 16px;
+          font-size: 14px;
+          color: #fff;
+          background-color: #ff5500;
+          text-align: center;
+          width: 75px;
+          line-height: 23px;
+          border-radius: 30px;
+        }
+
+        .tedian {
+          border: 1px solid #ff0000;
+          font-size: 10px;
+          border-radius: 5px;
+          padding: 1px 2px;
+          color: #ff0000;
+          position: relative;
+          top: -5.5px;
+          left: 100px;
+        }
+
+        #productListContainer {
+          height: 950px;
+          /* 设置div的高度 */
+          overflow-y: auto;
+          /* 设置垂直方向上的溢出滚动 */
+        }
+
+        @media only screen and (max-width: 750px) {
+          .btn-primary {
+            position: absolute;
+            right: 3%;
+            bottom: 1px;
+            font-size: 12px;
+            color: #fff;
+            background-color: #ff5500;
+            text-align: center;
+            width: 62px;
+            line-height: 3px;
+            border-radius: 30px;
+          }
+        }
+      </style>
+
+      <div class="Container">
+        <div id="productListContainer"></div>
+      </div>
+
+
+      <script>
+        fetch('products.json')
+          .then(response => response.json())
+          .then(data => {
+            const productList = data.data.data;
+
+            const ul = document.getElementById('productListContainer');
+
+            productList.forEach(product => {
+              const li = document.createElement('li');
+              li.classList.add('list-group-item');
+
+              const a = document.createElement('a');
+              a.href = 'https://91haoka.cn/webapp/merchant/templet1.html?share_id=514446&id=' + product.id;
+              a.textContent = '领取';
+              a.classList.add('btn', 'btn-primary', 'mr-2'); // 添加Bootstrap按钮样式
+
+              const img = document.createElement('img');
+              img.src = product.image1;
+              img.alt = product.title;
+              img.classList.add('img-thumbnail', 'mr-2'); // 添加Bootstrap图片样式
+              const p = document.createElement('p');
+              const span = document.createElement('span'); // 创建<span>元素
+              if (product.selling_point != '') {
+                span.textContent = product.selling_point.join(', '); // 设置销售点文本
+                span.classList.add('tedian');
+              }
+              p.textContent = product.title;
+              li.appendChild(img);
+              li.appendChild(p);
+              li.appendChild(span); // 将<span>元素添加到<li>元素中
+              li.appendChild(a);
+              ul.appendChild(li);
+            });
+          })
+          .catch(error => console.log(error));
+
+      </script>
     </div>
     <div class="container mt-5">
       <div class="panel panel-default">
@@ -150,14 +271,22 @@
 
         <div class="sec-panel-body">
           <div class="list list-links">
-            <a target="_blank" title="广电流量卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">广电流量卡</a>
-            <a target="_blank" title="手机卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">手机卡</a>
-            <a target="_blank" title="校园卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">校园卡</a>
-            <a target="_blank" title="流量卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">流量卡</a>
-            <a target="_blank" title="电信流量卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">电信流量卡</a>
-            <a target="_blank" title="移动流量卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">移动流量卡</a>
-            <a target="_blank" title="联通流量卡" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">联通流量卡</a>
-            <a target="_blank" title="选卡网" href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">选卡网</a>
+            <a target="_blank" title="广电流量卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">广电流量卡</a>
+            <a target="_blank" title="手机卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">手机卡</a>
+            <a target="_blank" title="校园卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">校园卡</a>
+            <a target="_blank" title="流量卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">流量卡</a>
+            <a target="_blank" title="电信流量卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">电信流量卡</a>
+            <a target="_blank" title="移动流量卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">移动流量卡</a>
+            <a target="_blank" title="联通流量卡"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">联通流量卡</a>
+            <a target="_blank" title="选卡网"
+              href="https://91haoka.cn/gth/#/minishop?share_id=514446&shop_name=%25E6%25AC%25A2%25E5%2593%25A5%25E7%259A%2584%25E5%25B0%258F%25E5%25B1%258B">选卡网</a>
           </div>
         </div>
       </div>
