@@ -105,8 +105,11 @@
     }
 
     .marginRight12 {
-        margin-right: 1rem;
+        margin-right: 0rem;
         font-size: small;
+    }
+    .ptitle{
+        font-size: 6px;
     }
 }
 
